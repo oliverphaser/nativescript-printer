@@ -1,15 +1,14 @@
 {
     "compilerOptions": {
-        "target": "ES2017",
-        "module": "esnext",
-        "moduleResolution": "node",
+        "target": "es5",
+        "module": "commonjs",
         "declaration": true,
         "removeComments": true,
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "skipLibCheck": true,
-        "lib": ["es2017", "dom"],
+        "lib": ["es6", "dom"],
         "sourceMap": true,
         "pretty": true,
         "allowUnreachableCode": false,
@@ -19,8 +18,7 @@
         "noImplicitAny": false,
         "noImplicitReturns": true,
         "noImplicitUseStrict": false,
-        "noFallthroughCasesInSwitch": true,
-        "baseUrl": "."
+        "noFallthroughCasesInSwitch": true
     },
     "exclude": [
         "node_modules"

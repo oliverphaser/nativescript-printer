@@ -1,6 +1,6 @@
 {
   "name": "@oliverphaser/nativescript-printer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Send an image, PDF or the screen contents to a physical printer. Forked from EddyVerbruggen and updated for NativeScript 8 with fixed printing of multiple pages on Android.",
   "main": "printer",
   "typings": "index.d.ts",
@@ -11,22 +11,30 @@
     }
   },
   "scripts": {
-    "tsc": "tsc -skipLibCheck",
-    "build": "npm i && npm run tsc",
-    "demo.ios": "npm run build && cd ../demo && tns run ios --emulator",
-    "demo.ios.device": "npm run build && cd ../demo && tns platform remove ios && tns run ios",
-    "demo.android": "npm run build && cd ../demo && tns platform remove android && tns run android --justlaunch",
-    "test": "npm run tslint && npm run tslint.demo && cd ../demo && tns build ios && tns build android",
-    "test.ios": "cd ../demo && tns platform remove ios && tns test ios --emulator",
-    "test.ios.device": "cd ../demo && tns platform remove ios && tns test ios",
-    "test.android": "cd ../demo && tns platform remove android && tns test android --justlaunch",
-    "preparedemo": "npm run build && cd ../demo && tns plugin remove nativescript-printer && tns plugin add ../src && tns install",
-    "setup": "npm i && cd ../demo && npm i && cd ../src && npm run build",
-    "setupandinstall": "npm i && cd ../demo && npm i && cd ../src && npm run build && cd ../demo && tns plugin add ../src && cd ../src",
-    "tslint": "tslint *.ts",
-    "tslint.demo": "tslint --config '../tslint.json' '../demo/app/*.ts' --exclude '**/node_modules/**'",
-    "ci.tslint": "npm run tslint && npm run tslint.demo",
-    "development.setup": "npm run setup && cd ../demo && npm link ../src && cd ../src"
+    "tsc": "tsc",
+    "build": "npm run tsc && npm run build.native",
+    "build.native": "node scripts/build-native.js",
+    "postclone":
+      "npm i && node scripts/postclone.js && cd ../demo && npm i && npx rimraf -- package-lock.json && cd ../src",
+    "test.android":
+      "npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
+    "test.ios":
+      "npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+    "tslint":
+      "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+    "plugin.tscwatch": "npm run tsc -- -w",
+    "demo.ios": "npm run tsc && cd ../demo && tns run ios --syncAllFiles",
+    "demo.android":
+      "npm run tsc && cd ../demo && tns run android --syncAllFiles",
+    "demo.reset":
+      "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
+    "plugin.prepare":
+      "npm run build && cd ../demo && tns plugin remove nativescript-printer && tns plugin add ../src",
+    "clean":
+      "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i",
+    "ci.tslint":
+      "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+    "prepack": "npm run build.native"
   },
   "repository": {
     "type": "git",
