@@ -1,29 +1,33 @@
-# NativeScript Printer plugin
+[npm]: https://img.shields.io/npm/v/@oliverphaser/nativescript-printer.svg?color=949393
+[apple]: https://img.shields.io/badge/apple-%E2%9C%93-949393.svg?logo=apple&logoColor=white
+[android]: https://img.shields.io/badge/android-%E2%9C%93-949393.svg?logo=android&logoColor=white
+[support]: https://img.shields.io/static/v1.svg?logo=paypal&label=Support&message=oliverphaser&style=for-the-badge&color=0c67b5&labelColor=afb0b9
 
-[![Build Status][build-status]][build-url]
-[![NPM version][npm-image]][npm-url]
-[![Downloads][downloads-image]][npm-url]
-[![Twitter Follow][twitter-image]][twitter-url]
-
-[build-status]:https://travis-ci.org/EddyVerbruggen/nativescript-printer.svg?branch=master
-[build-url]:https://travis-ci.org/EddyVerbruggen/nativescript-printer
-[npm-image]:http://img.shields.io/npm/v/nativescript-printer.svg
-[npm-url]:https://npmjs.org/package/nativescript-printer
-[downloads-image]:http://img.shields.io/npm/dm/nativescript-printer.svg
-[twitter-image]:https://img.shields.io/twitter/follow/eddyverbruggen.svg?style=social&label=Follow%20me
-[twitter-url]:https://twitter.com/eddyverbruggen
+[![npm]](https://www.npmjs.com/package/@oliverphaser/nativescript-printer)
+![apple]
+![android]
+<br/>
+[![support]](https://paypal.me/oliverphaser)
 
 > Think about the environment before printing!
+
+# NativeScript Printer plugin
+
+A [NativeScript](https://nativescript.org/) module for sending an image, PDF or the screen contents to a physical printer.
+
+## NativeScript 8
+
+This will work only on NativeScript 8.
 
 ## Installation
 From the command prompt go to your app's root folder and execute:
 
 ```
-tns plugin add nativescript-printer
+ns plugin add @oliverphaser/nativescript-printer
 ```
 
 ## Demo app
-Want to dive in quickly? Check out [the demo](https://github.com/EddyVerbruggen/nativescript-printer/tree/master/demo)! Otherwise, continue reading.
+Want to dive in quickly? Check out [the demo](https://github.com/oliverphaser/nativescript-printer/tree/master/demo)! Otherwise, continue reading.
 
 Run the demo app from the root of the project: `npm run demo.ios` or `npm run demo.android`.
 
@@ -41,7 +45,7 @@ Not all devices support printing, so it makes sense to check the device capabilt
 ##### TypeScript
 ```typescript
 // require the plugin
-import {Printer} from "nativescript-printer";
+import { Printer } from "@oliverphaser/nativescript-printer";
 
 // instantiate the plugin
 let printer = new Printer();
@@ -77,7 +81,7 @@ printer.printImage({
 
 ##### TypeScript
 ```typescript
-import { knownFolders } from "tns-core-modules/file-system/file-system";
+import { knownFolders } from "@nativescript/core";
 
 printer.printPDF({
   pdfPath: knownFolders.currentApp().path + "/pdf-test.pdf"

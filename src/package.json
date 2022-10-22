@@ -1,7 +1,7 @@
 {
-  "name": "nativescript-printer",
-  "version": "3.0.0",
-  "description": "Send an image or the screen contents to a physical printer",
+  "name": "@oliverphaser/nativescript-printer",
+  "version": "1.0.0",
+  "description": "Send an image, PDF or the screen contents to a physical printer. Forked from EddyVerbruggen and updated for NativeScript 8 with fixed printing of multiple pages on Android.",
   "main": "printer",
   "typings": "index.d.ts",
   "nativescript": {
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EddyVerbruggen/nativescript-printer.git"
+    "url": "https://github.com/oliverphaser/nativescript-printer.git"
   },
   "keywords": [
     "ecosystem:nativescript",
@@ -44,9 +44,8 @@
     "Printscreen"
   ],
   "author": {
-    "name": "Eddy Verbruggen",
-    "email": "eddyverbruggen@gmail.com",
-    "url": "https://github.com/EddyVerbruggen"
+    "name": "oliverphaser",
+    "email": "phaser@radioimpex.net"
   },
   "contributors": [
     {
@@ -55,10 +54,10 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/EddyVerbruggen/nativescript-printer/issues"
+    "url": "https://github.com/oliverphaser/nativescript-printer/issues"
   },
   "license": "MIT",
-  "homepage": "https://github.com/EddyVerbruggen/nativescript-printer",
+  "homepage": "https://github.com/oliverphaser/nativescript-printer",
   "readmeFilename": "README.md",
   "devDependencies": {
     "@nativescript/core": "~8.0.8",
