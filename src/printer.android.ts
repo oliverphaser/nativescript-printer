@@ -14,7 +14,7 @@ export class Printer implements PrinterApi {
   private printManager: any; // android.print.PrintManager;
 
   constructor() {
-    this.printManager = utils.ad.getApplicationContext().getSystemService(android.content.Context.PRINT_SERVICE);
+    this.printManager = Utils.ad.getApplicationContext().getSystemService(android.content.Context.PRINT_SERVICE);
   }
 
   private static isPrintingSupported(): boolean {
